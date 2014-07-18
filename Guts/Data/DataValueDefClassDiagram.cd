@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.4" />
+  <Class Name="NetCams.DataValueWithStorageDefinition">
+    <Position X="3.25" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Guts\Data\DataValueWithStorageDefinition.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetCams.DataValueDefinition">
+    <Position X="7" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Guts\Data\DataValueDefinition.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetCams.MathOpResultDefinition">
+    <Position X="5.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Guts\Data\MathOpResultDefinition.cs</FileName>
+      <HashCode>AAAABAAAEAAAAAAAAAAAAAQAAAAAAAAAAAAAAAIAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetCams.GeneratedValueDefinition">
+    <Position X="5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Guts\Data\GeneratedValueDefinition.cs</FileName>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetCams.CalculatedValueDefinition">
+    <Position X="12.25" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Guts\Data\CalculatedValueDefinition.cs</FileName>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAIEEIAAAACAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetCams.ConstantValueDefinition">
+    <Position X="2.25" Y="5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Guts\Data\ConstantValueDefinition.cs</FileName>
+      <HashCode>ACAABAEAAAAAAgCAAAAAAAAAAAAAgAAAAAAgAAACAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetCams.CommonValueDefinition" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Guts\Data\CommonValueDefinition.cs</FileName>
+      <HashCode>AAQABAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAACAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

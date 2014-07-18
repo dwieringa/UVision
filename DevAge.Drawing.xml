@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevAge.Drawing</name>
+    </assembly>
+    <members>
+        <member name="T:DevAge.Drawing.Border">
+            <summary>
+            A struct that represents a single border line.
+            If you have 2 adjacent cells and want to create a 1 pixel width border, you must set width 1 for one cell and width 0 for the other. Usually a cell has only Right and Bottom border.
+            </summary>
+        </member>
+        <member name="M:DevAge.Drawing.Border.Equals(System.Object)">
+            <summary>
+            Compare to current border with another border.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DevAge.Drawing.RectangleBorder">
+            <summary>
+            A struct that represents the borders of a cell. Contains 4 borders: Right, Left, Top, Bottom.
+            If you have 2 adjacent cells and want to create a 1 pixel width border, you must set width 1 for one cell and width 0 for the other. Usually a cell has only Right and Bottom border.
+            </summary>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.#ctor(DevAge.Drawing.Border)">
+            <summary>
+            Construct a RectangleBorder with the same border on all the side
+            </summary>
+            <param name="p_Border"></param>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.#ctor(DevAge.Drawing.Border,DevAge.Drawing.Border)">
+            <summary>
+            Construct a RectangleBorder with the specified Right and Bottom border and a 0 Left and Top border
+            </summary>
+            <param name="p_Right"></param>
+            <param name="p_Bottom"></param>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.#ctor(DevAge.Drawing.Border,DevAge.Drawing.Border,DevAge.Drawing.Border,DevAge.Drawing.Border)">
+            <summary>
+            Construct a RectangleBorder with the specified borders
+            </summary>
+            <param name="p_Top"></param>
+            <param name="p_Bottom"></param>
+            <param name="p_Left"></param>
+            <param name="p_Right"></param>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.SetColor(System.Drawing.Color)">
+            <summary>
+            Change the color of the current struct instance and return a copy of the modified struct.
+            </summary>
+            <param name="p_Color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.SetDashStyle(System.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            Change the color of the current struct instance and return a copy of the modified struct.
+            </summary>
+            <param name="p_Color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.SetWidth(System.Int32)">
+            <summary>
+            Change the width of the current struct instance and return a copy of the modified struct.
+            </summary>
+            <param name="p_Width"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.Equals(System.Object)">
+            <summary>
+            Compare to current border with another border.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.RemoveBorderFromRectanlge(System.Drawing.Rectangle)">
+            <summary>
+            Remove the width of all the borders (top, bottom, left, right) from a specified rectangle
+            </summary>
+            <param name="p_Input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.PointToPartType(System.Drawing.Rectangle,System.Drawing.Point,System.Int32@)">
+            <summary>
+            Returns the part of the cell of the spcific point.
+            </summary>
+            <param name="pRectangle"></param>
+            <param name="pPoint"></param>
+            <param name="distanceFromBorder">Returns the distance of the specified point from the border rectangle. -1 if is not inside the border. Returns a positive value or 0 if inside the border. Consider always the distance from the outer border.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.CreateInsetBorder(System.Int32,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Create an Inset border
+            </summary>
+            <param name="p_width"></param>
+            <param name="p_ShadowColor"></param>
+            <param name="p_LightColor"></param>
+        </member>
+        <member name="M:DevAge.Drawing.RectangleBorder.CreateRaisedBorder(System.Int32,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Create a Raised border
+            </summary>
+            <param name="p_width"></param>
+            <param name="p_ShadowColor"></param>
+            <param name="p_LightColor"></param>
+        </member>
+        <member name="T:DevAge.Drawing.ContentAlignment">
+            <summary>
+            Specifies alignment of content on the drawing surface.
+            The same enum as System.Drawing.ContentAlignment. Rewritten for compatibility with the Compact Framework.
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.BottomCenter">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned at the center.  
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.BottomLeft">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned on the left.  
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.BottomRight">
+            <summary>
+            Content is vertically aligned at the bottom, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.MiddleCenter">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned at the center.  
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.MiddleLeft">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned on the left.  
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.MiddleRight">
+            <summary>
+            Content is vertically aligned in the middle, and horizontally aligned on the right. 
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.TopCenter">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned at the center.  
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.TopLeft">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned on the left. 
+            </summary>
+        </member>
+        <member name="F:DevAge.Drawing.ContentAlignment.TopRight">
+            <summary>
+            Content is vertically aligned at the top, and horizontally aligned on the right.
+            </summary>
+        </member>
+        <member name="T:DevAge.Drawing.MeasureHelper">
+            <summary>
+            A class to help measure string operations. Internally use a Bitmap to create a Graphics object. Remember to call the Dispose method on this class.
+            </summary>
+        </member>
+        <member name="M:DevAge.Drawing.MeasureHelper.#ctor(System.Drawing.Graphics)">
+            <summary>
+            
+            </summary>
+            <param name="graphics">This object is not automatically disposed.</param>
+        </member>
+        <member name="M:DevAge.Drawing.MeasureHelper.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Drawing.MeasureHelper.MeasureStringAndImage(System.String,System.Drawing.StringFormat,System.Drawing.Font,System.Drawing.Image,DevAge.Drawing.ContentAlignment,System.Boolean,System.Drawing.Size)">
+            <summary>
+            Returns the minimum required size of the current cell, calculating using the current DisplayString, Image and Borders informations.
+            </summary>
+            <param name="p_bAlignTextToImage"></param>
+            <param name="p_DisplayText"></param>
+            <param name="p_Font"></param>
+            <param name="p_Image"></param>
+            <param name="p_ImageAlignment"></param>
+            <param name="p_StringFormat"></param>
+            <param name="maxLayoutArea">SizeF structure that specifies the maximum layout area for the text. If width or height are zero the value is set to a default maximum value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.MeasureHelper.MeasureStringAndImage(System.Drawing.Graphics,System.String,System.Drawing.StringFormat,System.Drawing.Font,System.Drawing.Image,DevAge.Drawing.ContentAlignment,System.Boolean,System.Drawing.Size)">
+            <summary>
+            Returns the minimum required size of the current cell, calculating using the current DisplayString, Image and Borders informations.
+            </summary>
+            <param name="p_Graphics"></param>
+            <param name="p_bAlignTextToImage"></param>
+            <param name="p_DisplayText"></param>
+            <param name="p_Font"></param>
+            <param name="p_Image"></param>
+            <param name="p_ImageAlignment"></param>
+            <param name="p_StringFormat"></param>
+            <param name="maxLayoutArea">SizeF structure that specifies the maximum layout area for the text. If width or height are zero the value is set to a default maximum value.</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevAge.Drawing.RoundedRectangle">
+            <summary>
+            Rapresents a rounded rectangle, takes a rectangle and a round value from 0 to 1. Can be converted to a GraphicsPath for drawing operations.
+            See also DevAge.Drawing.Utilities.FillRoundedRectangle and DrawRoundedRectangle methods.
+            </summary>
+        </member>
+        <member name="M:DevAge.Drawing.RoundedRectangle.#ctor(System.Drawing.Rectangle,System.Double)">
+            <summary>
+            Costructor
+            </summary>
+            <param name="rect">Content rectangle</param>
+            <param name="roundValue">The amount to round the rectangle. Can be any vavlues from 0 to 1. Set to 0 to draw a standard rectangle, 1 to have a full rounded rectangle.</param>
+        </member>
+        <member name="M:DevAge.Drawing.RoundedRectangle.ToGraphicsPath">
+            <summary>
+            Converts this structure to a GraphicsPath object, used to draw to a Graphics device.
+            Consider that you can create a Region with a GraphicsPath object using one of the Region constructor.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:DevAge.Drawing.RoundedRectangle.RoundValue">
+            <summary>
+            The amount to round the rectangle. Can be any values from 0 to 1. Set to 0 to draw a standard rectangle, 1 to have a full rounded rectangle.
+            </summary>
+        </member>
+        <member name="T:DevAge.Drawing.Utilities">
+            <summary>
+            Drawing utility functions
+            </summary>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.DrawBorder(System.Drawing.Graphics,System.Drawing.Rectangle,DevAge.Drawing.RectangleBorder)">
+            <summary>
+            Draw a border
+            </summary>
+            <param name="graphics"></param>
+            <param name="rectangle"></param>
+            <param name="border"></param>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.DrawRoundedRectangle(System.Drawing.Graphics,DevAge.Drawing.RoundedRectangle,System.Drawing.Pen)">
+            <summary>
+            Draw a rounded rectangle with the specified pen.
+            </summary>
+            <param name="g"></param>
+            <param name="roundRect"></param>
+            <param name="pen"></param>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.FillRoundedRectangle(System.Drawing.Graphics,DevAge.Drawing.RoundedRectangle,System.Drawing.Brush)">
+            <summary>
+            Fill a rounded rectangle with the specified brush.
+            </summary>
+            <param name="g"></param>
+            <param name="roundRect"></param>
+            <param name="brush"></param>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.DrawGradient3DBorder(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Int32,System.Int32,DevAge.Drawing.Gradient3DBorderStyle)">
+            <summary>
+            Draw a 3D border inside the specified rectangle using a linear gradient border color.
+            </summary>
+            <param name="g"></param>
+            <param name="p_HeaderRectangle"></param>
+            <param name="p_BackColor"></param>
+            <param name="p_DarkColor"></param>
+            <param name="p_LightColor"></param>
+            <param name="p_DarkGradientNumber">The width of the dark border</param>
+            <param name="p_LightGradientNumber">The width of the light border</param>
+            <param name="p_Style"></param>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.DrawTextAndImage(System.Drawing.Graphics,System.Drawing.Rectangle,System.Drawing.Image,DevAge.Drawing.ContentAlignment,System.Boolean,System.Boolean,System.String,System.Drawing.StringFormat,System.Boolean,System.Drawing.Color,System.Drawing.Font,System.Boolean)">
+            <summary>
+            Paint the Text and the Image passed
+            </summary>
+            <param name="g">Graphics device where you can render your image and text</param>
+            <param name="pDisplayRectangle">Relative rectangle based on the display area, without the borders</param>
+            <param name="pImage">Image to draw. Can be null.</param>
+            <param name="pImageAlignment">Alignment of the image</param>
+            <param name="pImageStretch">True to stretch the image to all the display rectangle</param>
+            <param name="pImageDisabled">True to draw the image as a disabled image, using CreateDisabledImage method.</param>
+            <param name="pText">Text to draw (can be null)</param>
+            <param name="pStringFormat">String format (can be null)</param>
+            <param name="pAlignTextToImage">True to align the text with the image</param>
+            <param name="pTextColor">Text Color</param>
+            <param name="pTextFont">Text Font(can be null)</param>
+            <param name="pTextDisabled">If true the text is drawed with KnownColor.GrayText color.</param>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.DrawString(System.Drawing.Graphics,System.Drawing.Rectangle,System.String,System.Drawing.StringFormat,System.Drawing.Color,System.Drawing.Font)">
+            <summary>
+            Draw the specified string inside the specified rectangle
+            </summary>
+            <param name="g"></param>
+            <param name="pDestination"></param>
+            <param name="pText"></param>
+            <param name="pStringFormat"></param>
+            <param name="pTextColor"></param>
+            <param name="pTextFont"></param>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.CalculateTextRectangleWithContent(System.Drawing.Rectangle,System.String,System.Drawing.StringFormat,System.Drawing.Rectangle,DevAge.Drawing.ContentAlignment)">
+            <summary>
+            Calculates the rectangle available to draw the specified Text aligned with another content (usually an image).
+            </summary>
+            <param name="pClientRectangle"></param>
+            <param name="pText"></param>
+            <param name="pStringFormat"></param>
+            <param name="pOtherContentRect"></param>
+            <param name="pOtherCOntentAlignment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.CalculateColorGradient(System.Drawing.Color,System.Drawing.Color,System.Int32)">
+            <summary>
+            Interpolate the specified number of times between start and end color
+            </summary>
+            <param name="p_StartColor"></param>
+            <param name="p_EndColor"></param>
+            <param name="p_NumberOfGradients"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.CalculateContentLocation(DevAge.Drawing.ContentAlignment,System.Drawing.Rectangle,System.Drawing.Size)">
+            <summary>
+            Calculates the location of an object inside a client rectangle using the specified alignment
+            </summary>
+            <param name="align"></param>
+            <param name="clientRect"></param>
+            <param name="objectSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.CalculateContentRectangle(DevAge.Drawing.ContentAlignment,System.Drawing.Rectangle,System.Drawing.Size)">
+            <summary>
+            Calculate the rectangle of the content specified
+            </summary>
+            <param name="align"></param>
+            <param name="clientRect"></param>
+            <param name="objectSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.ImageToBytes(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Converts the specified image to an array of byte using the specified format.
+            </summary>
+            <param name="img"></param>
+            <param name="imgFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.BytesToImage(System.Byte[])">
+            <summary>
+            Converts the specified byte array to an Image object.
+            </summary>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Drawing.Utilities.CreateDisabledImage(System.Drawing.Image,System.Drawing.Color)">
+            <summary>
+            Create a disabled version of the image.
+            </summary>
+            <param name="image">The image to convert</param>
+            <param name="background">The Color of the background behind the image. The background parameter is used to calculate the fill color of the disabled image so that it is always visible against the background.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

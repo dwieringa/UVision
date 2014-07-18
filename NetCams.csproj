@@ -1,0 +1,906 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45B45D15-8BBC-493B-A2B8-DC86301CB17B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>UVision</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NetCams</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>NetCams.ProgrammingForm</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <ManifestCertificateThumbprint>705B3A294AD5DA0D77E7867CBAD3F297C56D714D</ManifestCertificateThumbprint>
+    <ManifestKeyFile>NetCams_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>E:\Userwise\Innotec\My Documents\Vision Systems\NetCam C#\package\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>UVision</ProductName>
+    <PublisherName>Userwise Solutions</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevAge.SourceGrid3">
+      <Name>DevAge.SourceGrid3</Name>
+      <HintPath>DevAge.SourceGrid3.dll</HintPath>
+    </Reference>
+    <Reference Include="edtFTPnet, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4b0c991f43097782">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\edtftpnet\edtftpnet-1.3.0\bin\edtFTPnet.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\NModbus_1.4.0.3\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceGrid2">
+      <Name>sourcegrid2</Name>
+      <HintPath>sourcegrid2.dll</HintPath>
+    </Reference>
+    <Reference Include="SourceLibrary">
+      <Name>SourceLibrary</Name>
+      <HintPath>SourceLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.56.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_32\System.Data.SQLite\1.0.56.0__db937bc2d44ff139\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.1.2764.22861, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\DockPanel_2_1_Source\Src\WinFormsUI\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph, Version=4.5.8.22068, Culture=neutral, PublicKeyToken=02a83cbd123fcd60">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Compile Include="Decorations\IDecorationDefinition.cs" />
+    <Compile Include="Decorations\IDecorationInstance.cs" />
+    <Compile Include="Decorations\LineGroupDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="Forms\ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChartForm.Designer.cs">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\EditableBitmap.cs" />
+    <Compile Include="Guts\Data\GlobalImage.cs" />
+    <Compile Include="Guts\Features\GeneratedEdgeInstance.cs" />
+    <Compile Include="Guts\Features\EdgeCollectionDefinition.cs" />
+    <Compile Include="Guts\Features\EdgeCollectionInstance.cs" />
+    <Compile Include="Guts\Modbus\ModbusFlagTriggerDefinition.cs" />
+    <Compile Include="Guts\Modbus\ModbusFlagTriggerInstance.cs" />
+    <Compile Include="Guts\Modbus\ModbusTCPSlaveDevice.cs" />
+    <Compile Include="Guts\Modbus\WriteValueToModbusDefinition.cs" />
+    <Compile Include="Guts\Modbus\WriteValueToModbusInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\AbsFunctionDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\AbsFunctionInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\FunctionDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\FunctionInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\MinMaxFunctionDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\MinMaxFunctionInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\MultiParameterFunctionDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Functions\MultiParameterFunctionInstance.cs" />
+    <Compile Include="Guts\Tools\CalibrationToolDefinition.cs" />
+    <Compile Include="Guts\Tools\CalibrationToolInstance.cs" />
+    <Compile Include="DataValueRetentionFile.cs" />
+    <Compile Include="Decorations\CircleDecorationDefinition.cs" />
+    <Compile Include="Decorations\CircleDecorationInstance.cs" />
+    <Compile Include="Decorations\ToolCircleDecorationDefinition.cs" />
+    <Compile Include="Decorations\UserCircleDecorationDefinition.cs" />
+    <Compile Include="Guts\IToolDefinition.cs" />
+    <Compile Include="Guts\IToolInstance.cs" />
+    <Compile Include="Guts\Tools\DataLogDefinition.cs" />
+    <Compile Include="Guts\Tools\DataLogInstance.cs" />
+    <Compile Include="Guts\Tools\Data\CopyValueDefinition.cs" />
+    <Compile Include="Guts\Tools\Data\CopyValueInstance.cs" />
+    <Compile Include="Guts\Tools\Data\CopyValueToGlobaInstance.cs" />
+    <Compile Include="Guts\Tools\Data\CopyValueToGlobalDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindBlobOfSizeAndColorDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindBlobOfSizeAndColorInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindBrightestSpotDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindBrightestSpotInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\EqualityOperationCreator.cs" />
+    <Compile Include="Guts\Data\GlobalValue.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\EqualityOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\EqualityOperationInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\LogicalAndOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\LogicalAndOperationInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\LogicalOrOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\LogicalOrOperationInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindBoundingRectangleDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindBoundingRectangleInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindCenterOfColorOnLineDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindCenterOfColorOnLineInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindEdgeDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindEdgeInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindEdgeOriginalDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindEdgeOriginalInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindEdgesDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindEdgesInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindRadialLineDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindRadialLineInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindTransitionDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindTransitionInstance.cs" />
+    <Compile Include="Guts\Tools\MeasurementToolDefinition.cs" />
+    <Compile Include="Guts\Tools\MeasurementToolInstance.cs" />
+    <Compile Include="Guts\Tools\OperatorQueryDefinition.cs" />
+    <Compile Include="Guts\Tools\OperatorQueryInstance.cs" />
+    <Compile Include="Guts\Triggers\ButtonTriggerDefinition.cs" />
+    <Compile Include="Guts\Triggers\ButtonTriggerInstance.cs" />
+    <Compile Include="Forms\ImageBigViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImageBigViewForm.Designer.cs">
+      <DependentUpon>ImageBigViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guts\Data\CalculatedValueDefinition.cs" />
+    <Compile Include="Guts\Data\CalculatedValueInstance.cs" />
+    <Compile Include="ConditionToolDefinition.cs" />
+    <Compile Include="ConditionToolInstance.cs" />
+    <Compile Include="Guts\Tools\Finders\FindObjectCenterOnLineDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindObjectCenterOnLineInstance.cs" />
+    <Compile Include="GeneratedVideoDefinition.cs" />
+    <Compile Include="GeneratedVideoInstance.cs" />
+    <Compile Include="Guts\Data\DataValueDefinition.cs" />
+    <Compile Include="Guts\Data\DataValueInstance.cs" />
+    <Compile Include="Guts\Tools\Analysis\ImageScorerDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\ImageScorerInstance.cs" />
+    <Compile Include="Forms\ImageForm.cs" />
+    <Compile Include="Guts\Tools\Generators\ImageCropDefinition.cs" />
+    <Compile Include="Guts\Tools\Generators\ImageCropInstance.cs" />
+    <Compile Include="Guts\Triggers\ITriggerDefinition.cs" />
+    <Compile Include="Guts\Triggers\ITriggerInstance.cs" />
+    <Compile Include="Guts\Triggers\TNDnTagNumberTriggerDefinition.cs" />
+    <Compile Include="Guts\Triggers\TNDnTagNumberTriggerInstance.cs" />
+    <Compile Include="ImageDisplayDef.cs" />
+    <Compile Include="Guts\Mach3Link\LocalMach3.cs" />
+    <Compile Include="Guts\Mach3Link\Mach3ULink.cs" />
+    <Compile Include="Decorations\ObjectBasedLineDecorationDefinition.cs" />
+    <Compile Include="Decorations\ObjectBasedLineDecorationInstance.cs" />
+    <Compile Include="Guts\Tools\Generators\ImageDuplicatorDefinition.cs" />
+    <Compile Include="Guts\Tools\Generators\ImageDuplicatorInstance.cs" />
+    <Compile Include="ImageTool.cs" />
+    <Compile Include="IReferencePointDefinition.cs" />
+    <Compile Include="IReferencePointInstance.cs" />
+    <Compile Include="Guts\Data\CommonValueDefinition.cs" />
+    <Compile Include="Guts\Data\CommonValueInstance.cs" />
+    <Compile Include="Modbus\Data\DataStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Data\DataStoreFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Data\DiscreteCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Data\IModbusMessageDataCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Data\ModbusDataCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Data\RegisterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\IModbusMaster.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\IModbusSerialMaster.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusDevice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusIpMaster.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusMaster.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusSerialMaster.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusSerialSlave.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusSlave.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusTcpSlave.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Device\ModbusUdpSlave.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\CommPortAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ISerialPortAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ISerialResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ModbusAsciiTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ModbusIpTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ModbusRtuTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ModbusSerialTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ModbusTcpTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ModbusTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\ModbusUdpTransport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\IO\TcpStreamAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\DiagnosticsRequestResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\IModbusMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\IModbusMessageWithData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ModbusMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ModbusMessageFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ModbusMessageImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ModbusMessageWithData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ReadCoilsInputsRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ReadCoilsInputsResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ReadHoldingInputRegistersRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ReadHoldingInputRegistersResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\ReadWriteMultipleRegistersRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\SlaveExceptionResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\WriteMultipleCoilsRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\WriteMultipleCoilsResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\WriteMultipleRegistersRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\WriteMultipleRegistersResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\WriteSingleCoilRequestResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Message\WriteSingleRegisterRequestResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Modbus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Resources.Designer.cs" />
+    <Compile Include="Modbus\SlaveException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Utility\CollectionUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Utility\DelegateDefinitions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Utility\ModbusUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Utility\SequenceUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modbus\Utility\StringUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OperatorControlDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\ColorAnalysisDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\ColorAnalysisInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\RelationalOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\RelationalOperationInstance.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ROIs\IRectangleROIDefinition.cs" />
+    <Compile Include="ROIs\IRectangleROIInstance.cs" />
+    <Compile Include="ROIs\IROIDefinition.cs" />
+    <Compile Include="ROIs\IROIInstance.cs" />
+    <Compile Include="ROIs\JoinedROIDefinition.cs" />
+    <Compile Include="ROIs\JoinedROIInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\LogicalAndOperationCreator.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\LogicalOrOperationCreator.cs" />
+    <Compile Include="Guts\Tools\Calculations\MathOperationCreator.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\MultiplicationOperationCreator.cs" />
+    <Compile Include="NetworkCamera.cs" />
+    <Compile Include="Guts\ProjectConfigFile.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfGrayValueDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfGrayValueInstance.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfGrayVariationDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfGrayVariationInstance.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfAbsGrayVariationDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfAbsGrayVariationInstance.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfAvgGrayVariationDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\PatternMatchOfAvgGrayVariationInstance.cs" />
+    <Compile Include="PauseDefinition.cs" />
+    <Compile Include="PauseInstance.cs" />
+    <Compile Include="Guts\Tools\ScoreFilters\ProximityCollectorWith2GridsScoreFilterDefinition.cs" />
+    <Compile Include="Guts\Tools\ScoreFilters\ProximityCollectorWith2GridsScoreFilterInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\RelationalOperationCreator.cs" />
+    <Compile Include="ROIs\CircleROIDefinition.cs" />
+    <Compile Include="ROIs\CircleROIInstance.cs" />
+    <Compile Include="Guts\Tools\Analysis\ColorMatchCountOverRectangleDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\ColorMatchCountOverRectangleInstance.cs" />
+    <Compile Include="Guts\ColorMatch\NotColorMatchDefinition.cs" />
+    <Compile Include="Guts\ColorMatch\NotColorMatchInstance.cs" />
+    <Compile Include="Guts\ColorMatch\OrColorMatchDefinition.cs" />
+    <Compile Include="Guts\ColorMatch\OrColorMatchInstance.cs" />
+    <Compile Include="Guts\TNDLink\ReadValueFromTNDInstance.cs" />
+    <Compile Include="Forms\ActiveTestLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ActiveTestLogForm.Designer.cs">
+      <DependentUpon>ActiveTestLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNumbersDefinition.cs" />
+    <Compile Include="AddNumbersInstance.cs" />
+    <Compile Include="Forms\Forms_Old\AnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms_Old\AnalysisForm.Designer.cs">
+      <DependentUpon>AnalysisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Finders\FindCornerFromInsideDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindCornerFromInsideInstance.cs" />
+    <Compile Include="Forms\FavoriteSettings.cs" />
+    <Compile Include="Forms\FavoriteSettingsGenerator.cs" />
+    <Compile Include="Forms\FavoriteValues.cs" />
+    <Compile Include="Forms\FavoriteValuesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FavoriteValuesForm.Designer.cs">
+      <DependentUpon>FavoriteValuesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FavoriteValuesGenerator.cs" />
+    <Compile Include="Guts\Data\MathOpResultDefinition.cs" />
+    <Compile Include="Guts\Data\MathOpResultInstance.cs" />
+    <Compile Include="Guts\IObjectDefinition.cs" />
+    <Compile Include="Guts\IObjectInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\BasicMathOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\BasicMathOperationInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\CalculationToolDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\CalculationToolInstance.cs" />
+    <Compile Include="Camera.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CellImageToolArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Analysis\ColorMatchCountDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\ColorMatchCountInstance.cs" />
+    <Compile Include="Guts\ColorMatch\ColorMatchDefinition.cs" />
+    <Compile Include="Guts\ColorMatch\ColorMatchInstance.cs" />
+    <Compile Include="ColorSpace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\TestSequenceConfigFile.cs" />
+    <Compile Include="Decorations\DecorationDefinition.cs" />
+    <Compile Include="Decorations\DecorationInstance.cs" />
+    <Compile Include="Exceptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Finders\FindColorOnLineDefinition.cs" />
+    <Compile Include="Guts\Tools\Finders\FindColorOnLineInstance.cs" />
+    <Compile Include="Guts\Data\ConstantValueDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\ConstantValueInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\GeneratedImageDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\GeneratedImageInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\GeneratedValueDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\GeneratedValueInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\ImageDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\ImageInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\DataValueWithStorageDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\DataValueWithStorageInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\DataDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\DataInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\ObjectDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\ObjectInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\ToolDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\ToolInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\TestExecution.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\TestExecutionCollection.cs" />
+    <Compile Include="Guts\TestSequence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Calculations\Operators\MultiplicationOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\MultiplicationOperationInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\SumOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\SumOperationInstance.cs" />
+    <Compile Include="Guts\Tools\ImageComputationDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Generators\ImageGeneratorDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Generators\ImageGeneratorInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Generators\CameraSnapshotDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Generators\CameraSnapshotInstance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Generators\ImageSmootherDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Generators\ImageSmootherInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\ImageTestDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\ImageTestInstance.cs" />
+    <Compile Include="Guts\Triggers\TimerTriggerDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Triggers\TimerTriggerInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Triggers\TNDFlagTriggerDefinition.cs" />
+    <Compile Include="Guts\Triggers\TNDFlagTriggerInstance.cs" />
+    <Compile Include="Guts\Triggers\TriggerDefinition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Triggers\TriggerInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Project.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Analysis\IntensityVariationDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\IntensityVariationInstance.cs" />
+    <Compile Include="Guts\Tools\Analysis\IntensityVariationOverRectangleDefinition.cs" />
+    <Compile Include="Guts\Tools\Analysis\IntensityVariationOverRectangleInstance.cs" />
+    <Compile Include="Decorations\LineDecorationDefinition.cs" />
+    <Compile Include="Decorations\LineDecorationInstance.cs" />
+    <Compile Include="Forms\Forms_Old\ProgrammingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guts\Tools\Calculations\MathOperationDefinition.cs" />
+    <Compile Include="Guts\Tools\Calculations\MathOperationInstance.cs" />
+    <Compile Include="MetricsTracker.cs" />
+    <Compile Include="Forms\FavoriteSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FavoriteSettingsForm.Designer.cs">
+      <DependentUpon>FavoriteSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperationForm.Designer.cs">
+      <DependentUpon>OperationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ImageHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImageHistoryForm.Designer.cs">
+      <DependentUpon>ImageHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperationLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperationLogForm.Designer.cs">
+      <DependentUpon>OperationLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperationPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\OperationPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperationPropertiesForm.Designer.cs">
+      <DependentUpon>OperationPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperationReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperationReportForm.Designer.cs">
+      <DependentUpon>OperationReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperationSequenceTreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperationSequenceTreeForm.Designer.cs">
+      <DependentUpon>OperationSequenceTreeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OperationTestExecutionGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OperationTestExecutionGridForm.Designer.cs">
+      <DependentUpon>OperationTestExecutionGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Decorations\PointDecorationDefinition.cs" />
+    <Compile Include="Decorations\PointDecorationInstance.cs" />
+    <Compile Include="Forms\Forms_Old\StartupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms_Old\StartupForm.Designer.cs">
+      <DependentUpon>StartupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ROIs\RectangleROIByCenterDefinition.cs" />
+    <Compile Include="ROIs\RectangleROIByCenterInstance.cs" />
+    <Compile Include="ROIs\RectangleROIBaseDefinition.cs" />
+    <Compile Include="ROIs\RectangleROIBaseInstance.cs" />
+    <Compile Include="ROIs\RectangleROIDefinition.cs" />
+    <Compile Include="ROIs\RectangleROIInstance.cs" />
+    <Compile Include="ROIs\ROIInstance.cs" />
+    <Compile Include="ROIs\RectangleROIByEdgesInstance.cs" />
+    <Compile Include="ROIs\RectangleROIByEdgesDefinition.cs" />
+    <Compile Include="ROIs\ROIDefinition.cs" />
+    <Compile Include="Guts\TNDLink\SendNumberToTNDDefinition.cs" />
+    <Compile Include="Guts\TNDLink\SendNumberToTNDInstance.cs" />
+    <Compile Include="Guts\TNDLink\TNDLink_old.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guts\Triggers\TNDnTagFlagTriggerDefinition.cs" />
+    <Compile Include="Guts\Triggers\TNDnTagFlagTriggerInstance.cs" />
+    <Compile Include="Guts\TNDLink\TNDnTagReader.cs" />
+    <Compile Include="Guts\TNDLink\ReadValueFromTNDDefinition.cs" />
+    <Compile Include="Guts\TNDLink\TNDReadRequestHelper.cs" />
+    <Compile Include="Guts\TNDLink\TNDReadRequest.cs" />
+    <Compile Include="Guts\TNDLink\TNDLink.cs" />
+    <Compile Include="Guts\TNDLink\TNDConnectionStatusIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guts\TNDLink\TNDnTagWriter.cs" />
+    <Compile Include="Guts\TNDLink\TNDWriteRequest.cs" />
+    <Compile Include="Guts\TNDLink\TNDWriteRequest_DataValueObject.cs" />
+    <Compile Include="Guts\TNDLink\TNDWriteRequest_OneShotConstantBoolean.cs" />
+    <Compile Include="Guts\TNDLink\TNDnTagLink.cs" />
+    <Compile Include="ROIs\ROIWithHoleDefinition.cs" />
+    <Compile Include="ROIs\ROIWithHoleInstance.cs" />
+    <Compile Include="Guts\ColorMatch\RuleBasedColorMatchDefinition.cs" />
+    <Compile Include="Guts\ColorMatch\RuleBasedColorMatchInstance.cs" />
+    <Compile Include="ROIs\ROIWithColorExceptionDefinition.cs" />
+    <Compile Include="ROIs\ROIWithColorExceptionInstance.cs" />
+    <Compile Include="Guts\Tools\ScoreFilters\ScoreFilterDefinition.cs" />
+    <Compile Include="Guts\Tools\ScoreFilters\ScoreFilterInstance.cs" />
+    <Compile Include="Guts\Tools\Calculations\Operators\SumOperationCreator.cs" />
+    <Compile Include="Guts\TestContext.cs" />
+    <Compile Include="testdbDataSet.cs">
+      <DependentUpon>testdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="testdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>testdbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TimedLock.cs" />
+    <Compile Include="Decorations\ToolLineDecorationDefinition.cs" />
+    <Compile Include="Decorations\ToolPointDecorationDefinition.cs" />
+    <Compile Include="Decorations\UserLineDecorationDefinition.cs" />
+    <Compile Include="Decorations\UserPointDecorationDefinition.cs" />
+    <Compile Include="Guts\TNDLink\WriteValueToTNDDefinition.cs" />
+    <Compile Include="Guts\TNDLink\WriteValueToTNDInstance.cs" />
+    <Compile Include="Guts\Tools\Generators\VideoCaptureByJPEGDefinition.cs" />
+    <Compile Include="Guts\Tools\Generators\VideoCaptureByJPEGInstance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guts\Data\Video.cs" />
+    <Compile Include="Guts\Data\VideoDefinition.cs" />
+    <Compile Include="Guts\Tools\Generators\VideoGeneratorDefinition.cs" />
+    <Compile Include="Guts\Tools\Generators\VideoGeneratorInstance.cs" />
+    <Compile Include="Guts\Data\VideoInstance.cs" />
+    <Compile Include="Guts\Tools\Generators\VideoCaptureByMJPEGDefinition.cs" />
+    <Compile Include="Guts\Tools\Generators\VideoCaptureByMJPEGInstance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guts\Mach3Link\WriteValueToMach3Definition.cs" />
+    <Compile Include="Guts\Mach3Link\WriteValueToMach3Instance.cs" />
+    <Compile Include="Decorations\ValueBasedLineDecorationInstance.cs" />
+    <Compile Include="Decorations\ValueBasedLineDecorationDefinition.cs" />
+    <Compile Include="ValueGrouper.cs" />
+    <EmbeddedResource Include="Forms\ImageBigViewForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ImageBigViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms_Old\AnalysisForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AnalysisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ActiveTestLogForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ActiveTestLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ImageHistoryForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ImageHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperationLogForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OperationLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms_Old\ProgrammingForm.resx">
+      <DependentUpon>ProgrammingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FavoriteSettingsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FavoriteSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperationForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperationImageForm.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperationPropertiesForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OperationPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OperationSequenceTreeForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OperationSequenceTreeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modbus\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms_Old\StartupForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>StartupForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Guts\Data\DataValueInstanceClassDiagram.cd" />
+    <None Include="Guts\Data\DataValueDefClassDiagram.cd">
+      <SubType>
+      </SubType>
+    </None>
+    <None Include="Modbus\ModbusDevice.cd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NetCams_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="testdbDataSet.xsc">
+      <DependentUpon>testdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="testdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>testdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testdbDataSet.xss">
+      <DependentUpon>testdbDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxTNDNTAGLib">
+      <Guid>{0DF3B1E2-2726-11D2-80CE-00104B98305B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="TNDNTAGLib">
+      <Guid>{0DF3B1E2-2726-11D2-80CE-00104B98305B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Analysis\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

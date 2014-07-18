@@ -1,0 +1,2 @@
+http://dptest999.viewnetcam.com:63333/SnapshotJPEG?Resolution=640x480&Quality=Standard
+http://dptest999.viewnetcam.com:63333/ViewerFrame/nphMotionJpeg?resolution=640x480?Quality=Standard

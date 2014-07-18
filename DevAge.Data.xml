@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevAge.Data</name>
+    </assembly>
+    <members>
+        <member name="T:DevAge.Data.SqlClient.SqlCommandBuilder">
+            <summary>
+            This class is similar to the System.Data.SqlClient.SqlCommandBuilder, but use only the DataTable to create the required commands.
+            Don't support identity (autoincrement) column and only the base data type. This class don't use the data source to explore the data but only the DataTable informations.
+            So you must populate the PrimaryKeys of the DataSet. I suggest to use GUID column (uniqueidentifier) to replace the identity column.
+            Remember to set the Connection of the generated command.
+            </summary>
+        </member>
+        <member name="M:DevAge.Data.SqlClient.SqlCommandBuilder.#ctor(System.Data.DataTable)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="dataTable">table used to create commands</param>
+        </member>
+        <member name="P:DevAge.Data.SqlClient.SqlCommandBuilder.DataTable">
+            <summary>
+            Table used to create commands
+            </summary>
+        </member>
+        <member name="T:DevAge.Data.DataSetHelper">
+            <summary>
+            Utilities for DataSet class. Contains some methods to create expression string, for Select and Epression methods and methods for selecting data like SelectDistinct.
+            </summary>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.FormatDateForExpression(System.DateTime)">
+            <summary>
+            Create a string with this format: #MM/dd/yyyy# . This is the default format for DataSet expressions. Can be used for example with the DataTable.Select method.
+            </summary>
+            <param name="p_Date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.FormatFloatForExpression(System.Single)">
+            <summary>
+            Create a string with an InvariantCulture format.
+            </summary>
+            <param name="p_data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.FormatValueForExpression(System.String,System.Type)">
+            <summary>
+            Replace any special sql character (like single quote) and replace it with the valid sql equivalent. Then add the appropriate quote if the type require (string).
+            </summary>
+            <param name="pParameterValue"></param>
+            <param name="valueType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.CreateLikeExpression(System.String,System.String)">
+            <summary>
+            Create a like expression for string values, automatically calls FormatValueForExpression
+            </summary>
+            <param name="pFieldName"></param>
+            <param name="pFieldValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.CreateStartWithExpression(System.String,System.String)">
+            <summary>
+            Create a start with expression for stirng value, automatically calls FormatValueForExpression
+            </summary>
+            <param name="pFieldName"></param>
+            <param name="pFieldValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.CreateEqualExpression(System.String,System.String,System.Type)">
+            <summary>
+            Create an equal expression, automatically calls FormatValueForExpression
+            </summary>
+            <param name="pFieldName"></param>
+            <param name="pFieldValue"></param>
+            <param name="valueType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.CreateNotEqualExpression(System.String,System.String,System.Type)">
+            <summary>
+            Create a Not equal expression, automatically calls FormatValueForExpression
+            </summary>
+            <param name="pFieldName"></param>
+            <param name="pFieldValue"></param>
+            <param name="valueType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Data.DataSetHelper.ColumnEqual(System.Object,System.Object)">
+            <summary>
+            Compares two values to see if they are equal. Also compares DBNULL.Value.
+            Note: If your DataTable contains object fields, then you must extend this
+            function to handle them in a meaningful way if you intend to group on them.
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DevAge.Data.FileDataSet">
+            <summary>
+            Summary description for Manager.
+            </summary>
+        </member>
+        <member name="P:DevAge.Data.FileDataSet.SaveDataFormat">
+            <summary>
+            Gets or Sets the format used to save the DataSet
+            </summary>
+        </member>
+        <member name="P:DevAge.Data.FileDataSet.FileDataFormat">
+            <summary>
+            Gets the current format of the File where the data are loaded.
+            </summary>
+        </member>
+        <member name="P:DevAge.Data.FileDataSet.MergeReadedSchema">
+            <summary>
+            Gets or Sets if merge the schema of the file with the schema of the DataSet specified. Use true if the DataSet doesn't have a schema definition. Default is false.
+            </summary>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.FieldAttribute">
+            <summary>
+            Required attribute to specify the field position and length
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldAttribute.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fieldIndex">Index of the field, 0 based. Each field must have a unique progressive index</param>
+            <param name="length">Lenght of the field when readed and writed to the string.</param>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.ParseFormatAttribute">
+            <summary>
+            Attribute used to specify additional parse options
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.ParseFormatAttribute.#ctor">
+            <summary>
+            Constructor. Use one of these properties to customize the format: CultureInfo, DateTimeFormat, DoubleFormat, TrimBeforeParse.
+            Default is Invariant culture format.
+            </summary>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.ValueMappingAttribute">
+            <summary>
+            Attribute used to convert a specific value to another value
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.ValueMappingAttribute.#ctor(System.String,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="stringValue">String value</param>
+            <param name="fieldValue">Field typed value</param>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.StandardValueAttribute">
+            <summary>
+            Attribute used to specify the standard value
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.StandardValueAttribute.#ctor(System.String)">
+            <summary>
+            Construcotr
+            </summary>
+            <param name="standardValue">Required value</param>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldStringConvertException.ObjectToStringForError(System.Object)">
+            <summary>
+            Returns a string used for error description for a specified object. Usually used when printing the object for the error message when there is a conversion error.
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.IField">
+            <summary>
+            Interface for defining a Field in the FixedLength string
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.IField.ValueToString(System.Object)">
+            <summary>
+            Convert the specified value to a string value valid for this field
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.IField.StringToValue(System.String)">
+            <summary>
+            Convert the specified string value to a value based on the field format.
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DevAge.Text.FixedLength.IField.Index">
+            <summary>
+            Index of the field. 0 based.
+            </summary>
+        </member>
+        <member name="P:DevAge.Text.FixedLength.IField.Name">
+            <summary>
+            Name of the field, used for retriving the field by its name.
+            </summary>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.Field">
+            <summary>
+            Class for define a field, implements IField interface.
+            </summary>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.FieldList">
+            <summary>
+            A dictionary with keys of type string and values of type IField
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldList.#ctor">
+            <summary>
+            Initializes a new empty instance of the FieldList class
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldList.Add(DevAge.Text.FixedLength.IField)">
+            <summary>
+            Adds an element with the specified key and value to this FieldList.
+            </summary>
+            <param name="value">
+            The IField value of the element to add.
+            </param>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldList.Contains(System.String)">
+            <summary>
+            Determines whether this FieldList contains a specific key.
+            </summary>
+            <param name="fieldName">
+            The string key to locate in this FieldList.
+            </param>
+            <returns>
+            true if this FieldList contains an element with the specified key;
+            otherwise, false.
+            </returns>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldList.ContainsKey(System.String)">
+            <summary>
+            Determines whether this FieldList contains a specific key.
+            </summary>
+            <param name="fieldName">
+            The string key to locate in this FieldList.
+            </param>
+            <returns>
+            true if this FieldList contains an element with the specified key;
+            otherwise, false.
+            </returns>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldList.ContainsValue(DevAge.Text.FixedLength.IField)">
+            <summary>
+            Determines whether this FieldList contains a specific value.
+            </summary>
+            <param name="value">
+            The IField value to locate in this FieldList.
+            </param>
+            <returns>
+            true if this FieldList contains an element with the specified value;
+            otherwise, false.
+            </returns>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.FieldList.Remove(System.String)">
+            <summary>
+            Removes the element with the specified key from this FieldList.
+            </summary>
+            <param name="fieldName">
+            The string key of the element to remove.
+            </param>
+        </member>
+        <member name="P:DevAge.Text.FixedLength.FieldList.Item(System.String)">
+            <summary>
+            Gets or sets the IField associated with the given string
+            </summary>
+            <param name="key">
+            The string whose value to get or set.
+            </param>
+        </member>
+        <member name="P:DevAge.Text.FixedLength.FieldList.Keys">
+            <summary>
+            Gets a collection containing the keys in this FieldList.
+            </summary>
+        </member>
+        <member name="P:DevAge.Text.FixedLength.FieldList.Values">
+            <summary>
+            Gets a collection containing the values in this FieldList.
+            </summary>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.LineParser">
+            <summary>
+            A class for parsing fixed length string and loading the fields into a class.
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.LineParser.#ctor">
+            <summary>
+            Constructor. Fill the Fields list fot specify the columns.
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.LineParser.#ctor(System.Type)">
+            <summary>
+            Load the parser fields with the properties specified in the type. You must use the FieldAttribute and ParseFormatAttribute to specify additional informations like the field length.
+            </summary>
+            <param name="lineClassType"></param>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.LineParser.Reset">
+            <summary>
+            Reset the parser
+            </summary>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.LineParser.LoadLine(System.String)">
+            <summary>
+            Load the specified line in the parser.
+            </summary>
+            <param name="line"></param>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.LineParser.GetValue(System.String)">
+            <summary>
+            Get a specified field value.
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Text.FixedLength.LineParser.FillLineClass(System.Object)">
+            <summary>
+            Fill the properties of the specified class with the values of the line has defined by the Fields collection.
+            </summary>
+            <param name="schemaClass"></param>
+            <returns>Returns the same class specified in the schemaClass parameter, this is useful if you have struct or value types.</returns>
+        </member>
+        <member name="P:DevAge.Text.FixedLength.LineParser.Fields">
+            <summary>
+            Gets a collection of fields.
+            </summary>
+        </member>
+        <member name="T:DevAge.Text.FixedLength.LineWriter">
+            <summary>
+            Summary description for LineWriter.
+            </summary>
+        </member>
+    </members>
+</doc>

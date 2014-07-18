@@ -1,0 +1,1231 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevAge.Windows.Forms</name>
+    </assembly>
+    <members>
+        <member name="T:Chris.Beckett.MenuImageLib.MenuImage">
+            <summary>
+            A custom extender class that adds a <c>MenuImage</c>
+            attribute to <c>MenuItem</c> objects, and custom drawns the menu
+            with an icon stored in a referenced <c>ImageList</c> control.
+            </summary>
+            <remarks>
+            This extension was written to provide an simple way to link
+            icons in an Imagelist with a menu, and owner draw the menu. Other menu
+            icon samples sub-class a MenuItem which interferes with the Visual Studio
+            IDE for designing menus. Other examples required a lot of custom tooling
+            and hand-coding. By using an extender, no custom coding is required.
+            </remarks>
+        </member>
+        <member name="F:Chris.Beckett.MenuImageLib.MenuImage.IMAGE_BUFFER">
+            <summary>
+            Menu images should be 16 x 16
+            </summary>
+        </member>
+        <member name="F:Chris.Beckett.MenuImageLib.MenuImage._hashTable">
+            <summary>
+            Hashtable is used to relate added <c>MenuItem</c> components
+            with each custom status messsage attribute value.
+            </summary>
+        </member>
+        <member name="F:Chris.Beckett.MenuImageLib.MenuImage._imageList">
+            <summary>
+            Holds a reference to the user selected <c>StatusBar</c>
+            instance where custom statusmessage attribute values
+            are displayed.
+            </summary>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Constructor for instance that supports Class Composition designer.
+            </summary>
+            <param name="container">Reference to container hosting this instance.</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.SetMenuImage(System.ComponentModel.Component,System.String)">
+            <summary>
+            Used to set a MenuImage property value for
+            a specific <c>MenuItem</c> component instance.
+            </summary>
+            <param name="component">the <c>MenuItem</c> object to store</param>
+            <param name="indexValue">the image index value to associate with the menu item</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.GetMenuImage(System.ComponentModel.Component)">
+            <summary>
+            Used to retrieve the MenuImage extender property value
+            for a given <c>MenuItem</c> component instance.
+            </summary>
+            <param name="component">the menu item instance associated with the value</param>
+            <returns>Returns the MenuImage index property value for the specified <c>MenuItem</c> component instance.</returns>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.CanExtend(System.Object)">
+            <summary>
+            Used to determine if the given component is supported by
+            the extender.
+            </summary>
+            <param name="component">component to evaluate for compatability</param>
+            <returns>Returns True/False if the component supports the extender.</returns>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.GetMenuImageIndex(System.Object)">
+            <summary>
+            Performs a set of checks related to a menu image such as 
+            a ImageList has been assigned, the image index is a valid
+            number and is within the ImageList images collection boundaries, etc.
+            </summary>
+            <param name="sender">the client object to retrieve the menuindex for</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.OnMeasureItem(System.Object,System.Windows.Forms.MeasureItemEventArgs)">
+            <summary>
+            Event triggered to measure the size of a owner drawn <c>MenuItem</c>.
+            </summary>
+            <param name="sender">the menu item client object</param>
+            <param name="e">the event arguments</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.OnDrawItem(System.Object,System.Windows.Forms.DrawItemEventArgs)">
+            <summary>
+            Event triggered to owner draw the provide <c>MenuItem</c>.
+            </summary>
+            <param name="sender">the menu item client object</param>
+            <param name="e">the event arguments</param>
+        </member>
+        <member name="P:Chris.Beckett.MenuImageLib.MenuImage.ImageList">
+            <summary>
+            Gets or Sets the <c>ImageList</c> control that holds menu images.
+            </summary>
+            <value>an <c>ImageList</c> instance that holds menu icons.</value>
+        </member>
+        <member name="T:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper">
+            <summary>
+            
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.#ctor(System.Windows.Forms.MenuItem,System.Drawing.Graphics,System.Windows.Forms.ImageList)">
+            <summary>
+            MenuHelper constructor to assist in owner drawn menus.
+            </summary>
+            <param name="menuItem">a <c>MenuItem</c> object to custom draw</param>
+            <param name="graphics">a <c>Graphics</c> object provided by the <c>MeasureItem</c> and <c>DrawItem</c> events</param>
+            <param name="imageList"></param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.CalcHeight">
+            <summary>
+            Based on the menu item text, and the <c>SystemInformation.SmallIconSize,</c>
+            performs a calculation to determine the correct <c>MenuItem</c> height.
+            </summary>
+            <returns>Returns an <c>int</c> value that contains the calculated height of the menu item.</returns>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.CalcWidth">
+            <summary>
+            Based on the menu item text, and the <c>SystemInformation.SmallIconSize,</c>
+            performs a calculation to determine the correct <c>MenuItem</c> width.
+            </summary>
+            <returns>Returns an <c>int</c> value that contains the calculated width of the menu item.</returns>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.HasShortcut">
+            <summary>
+            A method to evaluate if the <c>MenuItem</c> has a shortcut selected, and the shortcut
+            has been selected for show.
+            </summary>
+            <returns>Returns True/False whether the menu has a shortcut to be displayed.</returns>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.IsSeperator">
+            <summary>
+            Evaluates whether the <c>MenuItem</c> is a seperator by evaluating the text.
+            </summary>
+            <returns>Returns True/False whether the menu is a seperator.</returns>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.IsTopLevel">
+            <summary>
+            Evaluates whether the <c>MenuItem</c> is a top-level menu that is sited directly
+            on a <c>MainMenu</c> control.
+            </summary>
+            <returns>Returns True/False if the menu item is a top-level menu.</returns>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.DrawMenu(System.Drawing.Rectangle,System.Boolean,System.Int32)">
+            <summary>
+            Draws a normal menu item including any related icons, checkboxes,
+            menu text, shortcuts text, and parent/submenu arrows.
+            </summary>
+            <param name="bounds">a <c>Rectangle</c> that holds the drawing canvas boundaries</param>
+            <param name="selected">True/False if the menu item is currently selected</param>
+            <param name="indexValue">the image index of the menu icon to draw, defaults to -1</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.DrawBackground(System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws the <c>MenuItem</c> background.
+            </summary>
+            <param name="bounds">a <c>Rectangle</c> that holds the painting canvas boundaries</param>
+            <param name="selected">True/False if the menu item is currently selected</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.DrawSeperator(System.Drawing.Rectangle)">
+            <summary>
+            Draws a menu seperator.
+            </summary>
+            <param name="bounds">a <c>Rectangle</c> that holds the drawing canvas boundaries</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.DrawMenuText(System.Drawing.Rectangle,System.Boolean)">
+            <summary>
+            Draws the text for an ownerdrawn <c>MenuItem</c>.
+            </summary>
+            <param name="bounds">a <c>Rectangle</c> that holds the drawing area boundaries</param>
+            <param name="selected">True/False whether the menu item is currently selected</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.DrawCheckBox(System.Drawing.Rectangle)">
+            <summary>
+            Draws a checked item next to a <c>MenuItem</c>.
+            </summary>
+            <param name="bounds">a <c>Rectangle</c> that identifies the drawing area boundaries</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.DrawImage(System.Drawing.Image,System.Drawing.Rectangle)">
+            <summary>
+            Draws a provided image onto the <c>MenuItem</c>.
+            </summary>
+            <param name="menuImage">an <c>Image</c> to paint on the menu</param>
+            <param name="bounds">a <c>Rectangle</c> that holds the drawing space boundaries</param>
+        </member>
+        <member name="M:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.DrawArrow(System.Drawing.Image,System.Drawing.Rectangle)">
+            <summary>
+            Draws a custom arrow on the right-side edge of the menu to indicate
+            the menu has submenu items. Used to supplement a base contorl arrow
+            that is painted incorrectly (seems to be a bug), and make the arrow
+            appear correctly for longer menu items.
+            </summary>
+            <param name="menuImage"></param>
+            <param name="bounds"></param>
+        </member>
+        <member name="P:Chris.Beckett.MenuImageLib.MenuImage.MenuHelper.ShortcutText">
+            <summary>
+            Formats the <c>MenuItem</c> and returns the shortcut selection as a displayable text string.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.IThemeProvider">
+            <summary>
+            Interface that each Theme Provider must implement. Contains all the method to draw themed controls. For an implementation look at the ThemeProviderBase class.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ThemePainter">
+            <summary>
+            Theme painter class. Use the CurrentProvider static property to specific the used provider. The default value is ThemeProviderBase.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ThemePainter.CurrentProvider">
+            <summary>
+            Static property used to specific the provider used. Can be any class that implements IThemeProvider interface. 
+            For example you can use ThemeProviderBase for the standard drawing provider or ThemeProviderXP to enable XP theme.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ThemeProviderBase">
+            <summary>
+            Base implementation of a IThemeProvider interface. This class is used for basic drawing without any special theme, using standard .NET drawing methods, usually using System.Windows.Forms.ControlPaint class.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ActivityProgress">
+            <summary>
+            Summary description for ActivityProgress.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ActivityProgress.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ActivityProgress.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ActivityProgress.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ActivityProgress.RefreshProgress(DevAge.Patterns.IActivity,System.Boolean)">
+            <summary>
+            Aggiorna la progress bar mostrando le attività in corso. 
+            Da notare che essendo una struttura gerarchica di attività ne visualizzo una parte alla volta.
+            </summary>
+            <param name="activity"></param>
+            <param name="started"></param>
+        </member>
+        <member name="T:DevAge.Windows.Forms.BackgroundActivity">
+            <summary>
+            Summary description for BackgroundActivity. Use the Activity property to gets or sets an activity, and the Start method to start it.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.BackgroundActivity.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.BackgroundActivity.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.BackgroundActivity.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.BackgroundActivity.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.BackgroundActivity.Start">
+            <summary>
+            Start the activity. Use the Started, Completed, Exception and Progress event.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.BackgroundActivity.Activity">
+            <summary>
+            Gets or sets the associated activity class.
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.BackgroundActivity.ActivityStarted">
+            <summary>
+            Fired when an activity is started.  This event is forced to be syncronized with the thread of the SyncronizingObject)
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.BackgroundActivity.ActivityCompleted">
+            <summary>
+            Fired when an activity is completed.  This event is forced to be syncronized with the thread of the SyncronizingObject)
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.BackgroundActivity.ActivityException">
+            <summary>
+            Fired when one of the activity throw an exception. This event is forced to be syncronized with the thread of the SyncronizingObject)
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.Button">
+            <summary>
+            Summary description for Button.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.Button.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.Button.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.Button.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.Button.TextAlign">
+            <summary>
+            Text Alignment. This property is only a wrapper around StringFormat
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ButtonMultiSelection">
+            <summary>
+            Summary description for ButtonMultiSelection.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ButtonMultiSelection.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ButtonMultiSelection.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ButtonMultiSelection.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.SubButtonItemCollection">
+            <summary>
+            A collection of elements of type SubButtonItem
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.#ctor">
+            <summary>
+            Initializes a new empty instance of the SubButtonItemCollection class.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.#ctor(DevAge.Windows.Forms.SubButtonItem[])">
+            <summary>
+            Initializes a new instance of the SubButtonItemCollection class, containing elements
+            copied from an array.
+            </summary>
+            <param name="items">
+            The array whose elements are to be added to the new SubButtonItemCollection.
+            </param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.#ctor(DevAge.Windows.Forms.SubButtonItemCollection)">
+            <summary>
+            Initializes a new instance of the SubButtonItemCollection class, containing elements
+            copied from another instance of SubButtonItemCollection
+            </summary>
+            <param name="items">
+            The SubButtonItemCollection whose elements are to be added to the new SubButtonItemCollection.
+            </param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.AddRange(DevAge.Windows.Forms.SubButtonItem[])">
+            <summary>
+            Adds the elements of an array to the end of this SubButtonItemCollection.
+            </summary>
+            <param name="items">
+            The array whose elements are to be added to the end of this SubButtonItemCollection.
+            </param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.AddRange(DevAge.Windows.Forms.SubButtonItemCollection)">
+            <summary>
+            Adds the elements of another SubButtonItemCollection to the end of this SubButtonItemCollection.
+            </summary>
+            <param name="items">
+            The SubButtonItemCollection whose elements are to be added to the end of this SubButtonItemCollection.
+            </param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.Add(DevAge.Windows.Forms.SubButtonItem)">
+            <summary>
+            Adds an instance of type SubButtonItem to the end of this SubButtonItemCollection.
+            </summary>
+            <param name="value">
+            The SubButtonItem to be added to the end of this SubButtonItemCollection.
+            </param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.Contains(DevAge.Windows.Forms.SubButtonItem)">
+            <summary>
+            Determines whether a specfic SubButtonItem value is in this SubButtonItemCollection.
+            </summary>
+            <param name="value">
+            The SubButtonItem value to locate in this SubButtonItemCollection.
+            </param>
+            <returns>
+            true if value is found in this SubButtonItemCollection;
+            false otherwise.
+            </returns>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.IndexOf(DevAge.Windows.Forms.SubButtonItem)">
+            <summary>
+            Return the zero-based index of the first occurrence of a specific value
+            in this SubButtonItemCollection
+            </summary>
+            <param name="value">
+            The SubButtonItem value to locate in the SubButtonItemCollection.
+            </param>
+            <returns>
+            The zero-based index of the first occurrence of the _ELEMENT value if found;
+            -1 otherwise.
+            </returns>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.Insert(System.Int32,DevAge.Windows.Forms.SubButtonItem)">
+            <summary>
+            Inserts an element into the SubButtonItemCollection at the specified index
+            </summary>
+            <param name="index">
+            The index at which the SubButtonItem is to be inserted.
+            </param>
+            <param name="value">
+            The SubButtonItem to insert.
+            </param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.Remove(DevAge.Windows.Forms.SubButtonItem)">
+            <summary>
+            Removes the first occurrence of a specific SubButtonItem from this SubButtonItemCollection.
+            </summary>
+            <param name="value">
+            The SubButtonItem value to remove from this SubButtonItemCollection.
+            </param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SubButtonItemCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that can iterate through the elements of this SubButtonItemCollection.
+            </summary>
+            <returns>
+            An object that implements System.Collections.IEnumerator.
+            </returns>        
+        </member>
+        <member name="P:DevAge.Windows.Forms.SubButtonItemCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the SubButtonItem at the given index in this SubButtonItemCollection.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.SubButtonItemCollection.Enumerator">
+            <summary>
+            Type-specific enumeration class, used by SubButtonItemCollection.GetEnumerator.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.CloseButton">
+            <summary>
+            Summary description for DropDownButton.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.CloseButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.CloseButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.CloseButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ColorPicker">
+            <summary>
+            Summary description for ColorPicker.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.EditableControlBase">
+            <summary>
+            Summary description for EditableControlBase.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.EditableControlBase.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.EditableControlBase.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.EditableControlBase.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ColorPicker.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ColorPicker.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ColorPicker.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ComboBoxTyped">
+            <summary>
+            Control to simulate a ComboBox, because the one provided with the Framework doesn't support vertical sizing different from the size of the font.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ComboBoxTyped.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.OnLoadingValidator">
+            <summary>
+            Reload the properties from the validator
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.ShowListBox">
+            <summary>
+            Populate and show the listbox
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.OnSelectedIndexChanged">
+            <summary>
+            Fired when the SelectedIndex property change
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.GetStringValueAtIndex(System.Int32)">
+            <summary>
+            Returns the string valud at the specified index using the editor. If index is not valid return Validator.NullDisplayString.
+            </summary>
+            <param name="p_Index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.SelectAllTextBox">
+            <summary>
+            Select all the text of the textbox
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.OnDropDownOpen(System.EventArgs)">
+            <summary>
+            Fired when showing the drop down
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ComboBoxTyped.OnDropDownClosed(System.EventArgs)">
+            <summary>
+            Fired when closing the dropdown
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.Validator">
+            <summary>
+            Required
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.ComboBoxTyped.LoadingValidator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.ReadOnlyTextBox">
+            <summary>
+            True to set the textbox readonly otherwise false.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.SelectedIndex">
+            <summary>
+            Selected Index of the Items array. -1 if no value is selected or if the value is not in the Items list.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.Value">
+            <summary>
+            Gets or sets the current value of the editor.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.Button">
+            <summary>
+            The button in the right of the editor
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.ComboBoxTyped.DropDownOpen">
+            <summary>
+            Fired when showing the drop down
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.ComboBoxTyped.DropDownClosed">
+            <summary>
+            Fired when closing the dropdown
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.ForceFormatText">
+            <summary>
+            Indicates if after the Validating event the Text is refreshed with the new value, forcing the correct formatting.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.EnableEscapeKeyUndo">
+            <summary>
+            True to enable the Escape key to undo any changes. Default is true.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.EnableEnterKeyValidate">
+            <summary>
+            True to enable the Enter key to validate any changes. Default is true.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.ComboBoxTyped.EnableAutoValidation">
+            <summary>
+            True to enable the validation of the textbox text when the Validating event is fired, to force always the control to be valid. Default is true.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ControlCursor">
+            <summary>
+            Summary description for ControlCursor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.DropDown">
+            <summary>
+            Summary description for DropDownCustom.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.DropDown.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.DropDown.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.DropDown.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.DropDownFlags.CloseOnEscape">
+            <summary>
+            Close the DropDown whe the user press the escape key, return DialogResult.Cancel
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.DropDownFlags.CloseOnEnter">
+            <summary>
+            Close the DropDown whe the user press the enter key, return DialogResult.OK
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.DropDownButton">
+            <summary>
+            Summary description for DropDownButton.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.DropDownButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.DropDownButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.DropDownButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ErrorDialog">
+            <summary>
+            Summary description for ErrorDialog.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ErrorDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ErrorDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ErrorDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ErrorDialogDetails">
+            <summary>
+            Summary description for ErrorDialogDetails.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ErrorDialogDetails.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ErrorDialogDetails.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ErrorDialogDetails.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.FormBase">
+            <summary>
+            Summary description for FormPosition.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.FormBase.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.FormBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.FormBase.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.HeaderGroupBox">
+            <summary>
+            Summary description for HeaderGroupBox.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.ImageNavigator">
+            <summary>
+            Summary description for ImageNavigator.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.ImageNavigator.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ImageNavigator.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.ImageNavigator.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.Line">
+            <summary>
+            Summary description for Line.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.Line.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.Line.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.Line.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.LinkLabel">
+            <summary>
+            A LinkLabel with Image support and round border support.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.LinkLabel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.LinkLabel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.LinkLabel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.LinkLabel.Image">
+            <summary>
+            The default image to draw
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.LinkLabel.MouseOverImage">
+            <summary>
+            Specifies the image to display when the mouse is inside the link area. If null is used the normal image.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.LinkLabel.DisabledImage">
+            <summary>
+            Specifies the image to display when the link is disabled.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.LinkLabel.BorderWidth">
+            <summary>
+            Gets or sets the width of the border. If 0 no border is drawed.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.LinkLabel.BorderRound">
+            <summary>
+            Round amount. If 0 the border is a not rounded.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.LinkLabel.BorderColor">
+            <summary>
+            Border color.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.MenuItemImage">
+            <summary>
+            A menu with Image support, using Chris.Beckett.MenuImageLib
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.MenuItemImage.SetImage(System.Drawing.Image)">
+            <summary>
+            Set the image associated with this menu, this method can be called only one time.
+            </summary>
+            <param name="p_Image"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.MenuItemImage.SetImage(System.Windows.Forms.ImageList,System.Int32)">
+            <summary>
+            Set the image associated with this menu, this method can be called only one time.
+            </summary>
+            <param name="p_ImageList"></param>
+            <param name="p_ImageIndex"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.NumericUpDownEx.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.NumericUpDownEx.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.SaveFlags.ActiveMDIMaximized">
+            <summary>
+            Indicates to save all the childs form of a MDI window with the state of the active child window if this window is maximized. This flag allow to reopen all the child form maximized if you close the form MDI parent with a maximized mdi child.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.PositionRecorderIsolatedStorage">
+            <summary>
+            A class that can be used to save into the isolated storage the position and the state of a Windows Forms control.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.SendCharExact">
+            <summary>
+            A class to send keystrokes to the active application using System.Windows.Forms.SendKeys.Send method. The characters sended are exactly the same used in the parameters, converting the special characters like upper case letters and \n, \t and similar characters with the corresponding send keys codes.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.SendCharExact.Send(System.Char)">
+            <summary>
+            Send keystrokes to the active application using System.Windows.Forms.SendKeys.Send method. The characters sended are exactly the same used in the parameters, converting the special characters like upper case letters and \n, \t and similar characters with the corresponding send keys codes.
+            Here some examples:
+            s -> s
+            S -> +s
+            + -> {+}
+            \n -> {ENTER}
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="T:DevAge.Windows.Forms.TextBoxTyped">
+            <summary>
+            A TextBox that allows to set the type of value to edit, then you can use the Value property to read and write the specific type.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.TextBoxTyped.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.TextBoxTyped.mValue">
+            <summary>
+            Indica l'ultimo valore impostato valido. null se non è stato impostato nessun valore. Questo serve nel caso in cui ci sia un Validating che fallisce e viene richiesta la property Value. In questo caso si restituisce questo valore.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.ValidateTextBoxValue">
+            <summary>
+            Validate the content of the TextBox
+            </summary>
+            <returns>Returns True if the value is valid otherwise false</returns>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.OnLoadingValidator">
+            <summary>
+            Reload the properties from the validator
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.OnTextChanged(System.EventArgs)">
+            <summary>
+            Raises the System.Windows.Forms.Control.TextChanged event.  
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.OnValidating(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Raises the System.Windows.Forms.Control.Validating event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Raises the System.Windows.Forms.Control.KeyDown event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Raises the System.Windows.Forms.Control.KeyPress event. 
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.CheckValidationChars(System.Char,System.Char[],System.Char[])">
+            <summary>
+            Check if the key pressed is valid or invalid. Only one array can be not null, otherwise only the validChars is processed.
+            </summary>
+            <param name="c"></param>
+            <param name="validChars">Array of valid characters, if null is not used</param>
+            <param name="invalidChars">Array of invalid characters, if null is not used</param>
+            <returns>Returns true is valid otherwise false</returns>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTyped.ValidateCharactersString(System.String,System.Char[],System.Char[])">
+            <summary>
+            Check in the specific string if all the characters are valid
+            </summary>
+            <param name="p_Input"></param>
+            <param name="p_ValidCharacters"></param>
+            <param name="p_InvalidCharacters"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.Value">
+            <summary>
+            The value of the TextBox, returns an instance of the specified type, or null if the Value is not valid.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.Text">
+            <summary>
+            Text value of the TextBox
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.IsValid">
+            <summary>
+            True if the current text box value is valid.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.ErrorProvider">
+            <summary>
+            Error provider used when a text is not valid.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.Validator">
+            <summary>
+            Type converter used for conversion
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.TextBoxTyped.LoadingValidator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.ErrorProviderMessage">
+            <summary>
+            Message used with the ErrorProvider object
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.ForceFormatText">
+            <summary>
+            Indicates if after the Validating event the Text is refreshed with the new value, forcing the correct formatting.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.EnableEscapeKeyUndo">
+            <summary>
+            True to enable the Escape key to undo any changes. Default is true.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.EnableEnterKeyValidate">
+            <summary>
+            True to enable the Enter key to validate any changes. Default is true.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.EnableAutoValidation">
+            <summary>
+            True to enable the validation of the textbox text when the Validating event is fired, to force always the control to be valid. Default is true.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.ValidCharacters">
+            <summary>
+            A list of characters allowed for the textbox. Used in the OnKeyPress event. If null no check is made.
+            If not null any others charecters is not allowed. First the function check if ValidCharacters is not null then check for InvalidCharacters.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTyped.InvalidCharacters">
+            <summary>
+            A list of characters not allowed for the textbox. Used in the OnKeyPress event. If null no check is made.
+            If not null any characters in the list is not allowed. First the function check if ValidCharacters is not null then check for InvalidCharacters.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.TextBoxTypedButton">
+            <summary>
+            Control to simulate a ComboBox, because the one provided with the Framework doesn't support vertical sizing different from the size of the font.
+            </summary>
+        </member>
+        <member name="F:DevAge.Windows.Forms.TextBoxTypedButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.OnLoadingValidator">
+            <summary>
+            Reload the properties from the validator
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.ShowDialog">
+            <summary>
+            Show the dialog
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.SelectAllTextBox">
+            <summary>
+            Select all the text of the textbox
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.OnDialogOpen(System.EventArgs)">
+            <summary>
+            Fired when showing the drop down
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedButton.OnDialogClosed(System.EventArgs)">
+            <summary>
+            Fired when closing the dropdown
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedButton.Validator">
+            <summary>
+            Required
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.TextBoxTypedButton.LoadingValidator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedButton.ReadOnlyTextBox">
+            <summary>
+            True to set the textbox readonly otherwise false.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedButton.Value">
+            <summary>
+            Gets or sets the current value of the editor.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedButton.Button">
+            <summary>
+            The button in the right of the editor
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.TextBoxTypedButton.DialogOpen">
+            <summary>
+            Fired when showing the drop down
+            </summary>
+        </member>
+        <member name="E:DevAge.Windows.Forms.TextBoxTypedButton.DialogClosed">
+            <summary>
+            Fired when closing the dropdown
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedButton.ForceFormatText">
+            <summary>
+            Indicates if after the Validating event the Text is refreshed with the new value, forcing the correct formatting.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedButton.EnableEscapeKeyUndo">
+            <summary>
+            True to enable the Escape key to undo any changes. Default is true.
+            </summary>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedButton.EnableEnterKeyValidate">
+            <summary>
+            True to enable the Enter key to validate any changes. Default is true.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.TextBoxTypedNumeric">
+            <summary>
+            Summary description for TextBoxTypedNumeric.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedNumeric.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxTypedNumeric.CreateNumericValidChars(System.Globalization.CultureInfo,DevAge.Windows.Forms.NumericCharStyle)">
+            <summary>
+            Returns an array of valid numeric char 
+            </summary>
+            <param name="p_Culture">If null the current culture is used</param>
+            <param name="p_NumericCharStyle"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DevAge.Windows.Forms.TextBoxTypedNumeric.NumericCharStyle">
+            <summary>
+            Style of characters allowed. When using this property the ValidCharacters is automatically calculated.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.NumericCharStyle">
+            <summary>
+            Numeric allowed characters. Defualt is NumericCharStyle.DecimalSeparator | NumericCharStyle.NegativeSymbol | NumericCharStyle.ExponentialSymbol | NumericCharStyle.PositiveSymbol
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.TextBoxUITypeEditor">
+            <summary>
+            A TextBoxTypedButton that uase the UITypeEditor associated with the type.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxUITypeEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:DevAge.Windows.Forms.TextBoxUITypeEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:DevAge.Windows.Forms.Utilities">
+            <summary>
+            Summary description for Utilities.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevAge.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:DevAge.Runtime.Serialization.Utilities">
+            <summary>
+            Class for serialization utilities
+            </summary>
+        </member>
+        <member name="T:DevAge.Security.Cryptography.Utilities">
+            <summary>
+            Utilities
+            </summary>
+        </member>
+        <member name="T:DevAge.Security.Cryptography.Utilities.DES">
+            <summary>
+            Crypt and encrypt methods using DES
+            </summary>
+        </member>
+        <member name="M:DevAge.Security.Cryptography.Utilities.DES.EncryptString(System.String,System.String)">
+            <summary>
+            Encrypt the specified string using DES
+            </summary>
+            <param name="p_strInput">String to encrypt</param>
+            <param name="p_Key8chars">Must be of 8 characters length</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Security.Cryptography.Utilities.DES.DecryptString(System.String,System.String)">
+            <summary>
+            Decrypt the specified string using DES
+            </summary>
+            <param name="p_strInput">String to decrypt</param>
+            <param name="p_Key8chars">Must be of 8 characters length</param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Security.Cryptography.Utilities.DES.EncryptStream(System.IO.Stream,System.IO.Stream,System.String)">
+            <summary>
+            Encrypt the specified stream using DES
+            </summary>
+            <param name="p_StreamInput"></param>
+            <param name="p_StreamOutput"></param>
+            <param name="p_Key8chars">Must be of 8 characters length</param>
+        </member>
+        <member name="M:DevAge.Security.Cryptography.Utilities.DES.DecryptStream(System.IO.Stream,System.IO.Stream,System.String)">
+            <summary>
+            Decrypt the specified stream using DES
+            </summary>
+            <param name="p_StreamInput"></param>
+            <param name="p_StreamOutput"></param>
+            <param name="p_Key8chars">Must be of 8 characters length</param>
+        </member>
+        <member name="T:DevAge.Security.Cryptography.Utilities.SHA1">
+            <summary>
+            Password utilities using SH1 alghoritm
+            </summary>
+        </member>
+        <member name="M:DevAge.Security.Cryptography.Utilities.SHA1.HashPassword(System.String)">
+            <summary>
+            Hash the string p_Password using SH1 alghoritm (SHA1CryptoServiceProvider). 
+            </summary>
+            <param name="p_Password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.Shell.MailToProtocol.FormatMailToCommand(System.String[],System.String[],System.String[],System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="p_To">null if not used</param>
+            <param name="p_Cc">null if not used</param>
+            <param name="p_Bcc">null if not used</param>
+            <param name="p_Subject">null if not used</param>
+            <param name="p_Body">null if not used</param>
+            <returns></returns>
+        </member>
+        <member name="T:DevAge.Shell.Utilities">
+            <summary>
+            Shell utilities
+            </summary>
+        </member>
+        <member name="T:DevAge.DateTimeHelper">
+            <summary>
+            Summary description for DateTimeHelper.
+            </summary>
+        </member>
+        <member name="M:DevAge.DateTimeHelper.YearsDifference(System.DateTime,System.DateTime)">
+            <summary>
+            Calculate the difference in years of 2 dates. Usually used for age calculations. dateA - dateB
+            </summary>
+            <param name="dateA"></param>
+            <param name="dateB"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DevAge.DateTimeHelper.MonthsDifference(System.DateTime,System.DateTime)">
+            <summary>
+            Calculate the difference in months of 2 dates. dateA - dateB
+            </summary>
+            <param name="dateA"></param>
+            <param name="dateB"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
